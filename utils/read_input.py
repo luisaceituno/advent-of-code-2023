@@ -1,2 +1,5 @@
+import sys
+
+
 def read_input():
-    print("hello world")
+    return [line.removesuffix("\n") for line in sys.stdin]

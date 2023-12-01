@@ -161,3 +161,4 @@ cython_debug/
 
 # Advent of Code puzzle inputs
 *.input
+sandbox/*.py
