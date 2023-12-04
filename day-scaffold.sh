@@ -1,15 +1,21 @@
 #!/bin/bash
 
-current_day=$(date +%d)
-provided_day="${1:-$current_day}"
+provided_day="$1"
 
-if ! [[ $1 =~ ^[0-9][0-9]?$ ]]; then
+if ! [ -n "$provided_day" ]; then
+    provided_day=$(date +%d)
     echo "No day provided, using current day: $provided_day"
 fi
 
-slim_day=$(echo $provided_day | sed 's/^0*//')
-padded_day=$(printf "%02s" "$provided_day")
+if [ "$provided_day" -lt 1 ] || [ "$provided_day" -gt 25 ]; then
+    echo "Invalid day provided. Only 1-25 supported."
+    exit 1
+fi
 
+slim_day=$(echo $provided_day | sed 's/^0*//')
+padded_day=$(printf "%02d" "$slim_day")
+
+echo "Creating puzzle files for day $slim_day..."
 mkdir "puzzles/day$padded_day"
 touch "puzzles/day$padded_day/common.py"
 touch "puzzles/day$padded_day/part1.py"
@@ -20,4 +26,5 @@ if ! [ -n "$AOC_SESSION" ]; then
     exit 0
 fi
 
+echo "Downloading input for day $slim_day..."
 curl -b "session=$AOC_SESSION" -o "$padded_day.input" "https://adventofcode.com/2023/day/$slim_day/input"
