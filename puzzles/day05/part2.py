@@ -39,7 +39,7 @@ for a_map in almanac.maps:
             )
         )
     cur_ranges = list(
-        map(lambda r: range(a_map.map(r.start), a_map.map(r.stop - 1)), cur_ranges)
+        map(lambda r: range(a_map.map(r.start), a_map.map(r.stop - 1) + 1), cur_ranges)
     )
 
 print(min(cur_ranges, key=lambda r: r.start).start)
