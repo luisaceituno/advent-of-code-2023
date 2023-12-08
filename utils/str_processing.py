@@ -1,3 +1,4 @@
+import re
 from typing import Generator
 
 
@@ -12,3 +13,7 @@ def chars_surrounding(
             line = lines[cur_y]
             if cur_x < len(line):
                 yield line[cur_x], cur_y, cur_x
+
+
+def alphanum_tokens(line: str):
+    return re.sub(r"[^0-9a-zA-Z]", " ", line).split()

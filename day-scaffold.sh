@@ -27,4 +27,4 @@ if ! [ -n "$AOC_SESSION" ]; then
 fi
 
 echo "Downloading input for day $slim_day..."
-curl -b "session=$AOC_SESSION" -o "$padded_day.input" "https://adventofcode.com/2023/day/$slim_day/input"
+curl -s -b "session=$AOC_SESSION" -o "$padded_day.input" "https://adventofcode.com/2023/day/$slim_day/input"
