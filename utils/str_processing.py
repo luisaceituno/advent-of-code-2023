@@ -17,3 +17,7 @@ def chars_surrounding(
 
 def alphanum_tokens(line: str):
     return re.sub(r"[^0-9a-zA-Z]", " ", line).split()
+
+
+def int_tokens(line: str):
+    return [int(token) for token in re.sub(r"[^0-9\-]", " ", line).split()]

@@ -15,14 +15,11 @@
 	"containerEnv": {
 		"PYTHONPATH": "."
 	},
-	"runArgs": [
-		"--env-file",
-		".env"
-	],
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-python.black-formatter"
+				"ms-python.black-formatter",
+				"ms-python.python"
 			],
 			"settings": {
 				"[python]": {
