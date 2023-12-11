@@ -1,5 +1,5 @@
 import re
-from typing import Generator
+from typing import Callable, Generator
 
 
 def chars_surrounding(
@@ -21,3 +21,10 @@ def alphanum_tokens(line: str):
 
 def int_tokens(line: str):
     return [int(token) for token in re.sub(r"[^0-9\-]", " ", line).split()]
+
+
+def find_y_x_val(lines: list[list[str]], filter: Callable[[str], bool]):
+    for y, line in enumerate(lines):
+        for x, s in enumerate(line):
+            if filter(s):
+                return y, x, s
