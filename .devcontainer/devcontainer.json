@@ -26,8 +26,7 @@
 					"editor.defaultFormatter": "ms-python.black-formatter",
 					"editor.formatOnSave": true,
 					"diffEditor.ignoreTrimWhitespace": false,
-					"editor.formatOnType": true,
-					"editor.wordBasedSuggestions": false
+					"editor.formatOnType": true
 				}
 			}
 		}
