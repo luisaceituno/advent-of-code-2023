@@ -28,3 +28,7 @@ def find_y_x_val(lines: list[list[str]], filter: Callable[[str], bool]):
         for x, s in enumerate(line):
             if filter(s):
                 yield y, x, s
+
+
+def transpose(lines: list[str]):
+    return list("".join(chars) for chars in zip(*lines))
