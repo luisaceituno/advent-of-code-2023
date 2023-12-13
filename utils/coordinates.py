@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Self
 
 
 @dataclass(frozen=True)
@@ -28,3 +29,14 @@ class YX:
             and self.y < len(map)
             and self.x < len(map[self.y])
         )
+
+    def dist_manhattan(self, other: Self):
+        return abs(other.y - self.y) + abs(other.x - self.x)
+
+    def range_y(self, other: Self):
+        s, e = sorted([self.y, other.y])
+        return range(s, e)
+
+    def range_x(self, other: Self):
+        s, e = sorted([self.x, other.x])
+        return range(s, e)

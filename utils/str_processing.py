@@ -27,4 +27,4 @@ def find_y_x_val(lines: list[list[str]], filter: Callable[[str], bool]):
     for y, line in enumerate(lines):
         for x, s in enumerate(line):
             if filter(s):
-                return y, x, s
+                yield y, x, s

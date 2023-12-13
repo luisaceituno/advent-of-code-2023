@@ -7,7 +7,7 @@ from utils.str_processing import find_y_x_val
 input = read_input()
 
 
-y, x, s = find_y_x_val(input, lambda s: s == "S")
+y, x, s = next(find_y_x_val(input, lambda s: s == "S"))
 start = YX(y, x)
 path1, path2 = [
     (start, cur)

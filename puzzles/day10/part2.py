@@ -5,7 +5,7 @@ from utils.str_processing import find_y_x_val
 
 input = [list(line) for line in read_input()]
 
-y, x, s = find_y_x_val(input, lambda s: s == "S")
+y, x, s = next(find_y_x_val(input, lambda s: s == "S"))
 start = YX(y, x)
 move = (
     start,
