@@ -1,7 +1,6 @@
 from utils.coordinates import YX
+from utils.lists import filter_2d
 from utils.read_input import read_input
-from utils.str_processing import find_y_x_val
-
 
 input = read_input()
 
@@ -10,7 +9,7 @@ empty_cols = {*range(len(input[0]))}
 
 stars: list[YX] = []
 
-for y, x, star in find_y_x_val(input, lambda s: s == "#"):
+for star, y, x in filter_2d(input, lambda s: s == "#"):
     stars.append(YX(y, x))
     empty_rows.discard(y)
     empty_cols.discard(x)

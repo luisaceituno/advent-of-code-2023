@@ -22,3 +22,18 @@ def diff_elems[T](list_a: list[T], list_b: list[T]):
     for a, b in zip(list_a, list_b):
         if a != b:
             yield (a, b)
+
+
+def enumerate_2d[T](lines: list[list[T]]):
+    """Yields (element, y, x) for each element in the matrix"""
+    for y in range(0, len(lines)):
+        line = lines[y]
+        for x in range(0, len(line)):
+            yield line[x], y, x
+
+
+def filter_2d[T](lines: list[list[T]], predicate: Callable[[T], bool]):
+    """Yields (element, y, x) for each element in the matrix that satisfies the predicate"""
+    for entry in enumerate_2d(lines):
+        if predicate(entry[0]):
+            yield entry

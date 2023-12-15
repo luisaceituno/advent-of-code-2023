@@ -1,11 +1,11 @@
 from puzzles.day10.common import next_pos
 from utils.coordinates import YX
+from utils.lists import filter_2d
 from utils.read_input import read_input
-from utils.str_processing import find_y_x_val
 
 input = [list(line) for line in read_input()]
 
-y, x, s = next(find_y_x_val(input, lambda s: s == "S"))
+s, y, x = next(filter_2d(input, lambda s: s == "S"))
 start = YX(y, x)
 move = (
     start,
