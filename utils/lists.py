@@ -1,5 +1,6 @@
 from functools import reduce
-from typing import Callable
+from itertools import cycle
+from typing import Callable, Iterable
 
 
 def multiply(*nums: int):
@@ -37,3 +38,10 @@ def filter_2d[T](lines: list[list[T]], predicate: Callable[[T], bool]):
     for entry in enumerate_2d(lines):
         if predicate(entry[0]):
             yield entry
+
+
+def cycle_n[T](iterable: Iterable[T], n: int):
+    """Yields n elements from iterable, cycling back to the start once it's exhausted"""
+    c = cycle(iterable)
+    for i in range(0, n):
+        yield next(c)
