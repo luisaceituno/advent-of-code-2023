@@ -5,7 +5,7 @@ from utils.read_input import read_input
 
 diagram = read_input()
 moves = {"u": up, "r": right, "d": down, "l": left}
-entries: dict[str, list[tuple[int, int]]] = {
+starting_points: dict[str, list[tuple[int, int]]] = {
     "r": zip(range(0, len(diagram)), repeat(0)),
     "l": zip(range(0, len(diagram)), repeat(len(diagram[0]) - 1)),
     "u": zip(repeat(len(diagram) - 1), range(0, len(diagram[0]))),
@@ -13,7 +13,7 @@ entries: dict[str, list[tuple[int, int]]] = {
 }
 
 optimal = 0
-for entry_dir, entry_points in entries.items():
+for entry_dir, entry_points in starting_points.items():
     for entry_point in entry_points:
         tiles: Tiles = {entry_point: [entry_dir]}
         changed: Tiles = tiles.copy()
