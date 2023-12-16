@@ -1,3 +1,5 @@
+from utils.coordinates import YX
+
 reflections = {
     ".": {"u": ["u"], "r": ["r"], "d": ["d"], "l": ["l"]},
     "\\": {"u": ["l"], "r": ["d"], "d": ["r"], "l": ["u"]},
@@ -6,5 +8,5 @@ reflections = {
     "|": {"u": ["u"], "r": ["u", "d"], "d": ["d"], "l": ["u", "d"]},
 }
 Dir = str  # u, r, d, l
-Coord = tuple[int, int]
-Tiles = dict[Coord, list[Dir]]
+Tiles = dict[YX, list[Dir]]
+moves = {"u": YX.up, "r": YX.right, "d": YX.down, "l": YX.left}

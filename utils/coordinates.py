@@ -1,11 +1,14 @@
-from dataclasses import dataclass
 from typing import Self
 
 
-@dataclass(frozen=True)
-class YX:
-    y: int
-    x: int
+class YX(tuple):
+    def __new__(cls, y: int, x: int) -> Self:
+        return super().__new__(cls, (y, x))
+
+    def __init__(self, y: int, x: int) -> None:
+        super().__init__()
+        self.y = y
+        self.x = x
 
     def up(self):
         return YX(self.y - 1, self.x)
@@ -30,6 +33,9 @@ class YX:
             and self.x < len(map[self.y])
         )
 
+    def on(self, map: list[list]):
+        return map[self.y][self.x]
+
     def dist_manhattan(self, other: Self):
         return abs(other.y - self.y) + abs(other.x - self.x)
 
@@ -43,16 +49,16 @@ class YX:
 
 
 def up(y: int, x: int):
-    return y - 1, x
+    return YX(y, x).up()
 
 
 def right(y: int, x: int):
-    return y, x + 1
+    return YX(y, x).right()
 
 
 def down(y: int, x: int):
-    return y + 1, x
+    return YX(y, x).down()
 
 
 def left(y: int, x: int):
-    return y, x - 1
+    return YX(y, x).left()
