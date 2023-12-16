@@ -40,3 +40,19 @@ class YX:
     def range_x(self, other: Self):
         s, e = sorted([self.x, other.x])
         return range(s, e)
+
+
+def up(y: int, x: int):
+    return y - 1, x
+
+
+def right(y: int, x: int):
+    return y, x + 1
+
+
+def down(y: int, x: int):
+    return y + 1, x
+
+
+def left(y: int, x: int):
+    return y, x - 1
