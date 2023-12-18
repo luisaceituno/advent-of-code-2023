@@ -1,5 +1,5 @@
 from puzzles.day10.common import next_pos
-from utils.coordinates import YX
+from utils.coordinates import DOWN, LEFT, RIGHT, UP, YX
 from utils.lists import filter_2d
 from utils.read_input import read_input
 
@@ -17,17 +17,17 @@ while move[1] != start:
     loop.add(move[1])
     move = (move[1], next_pos(move[0], move[1], input))
 
-if start.up() in loop:
-    if start.right() in loop:
+if start.move(UP) in loop:
+    if start.move(RIGHT) in loop:
         input[start.y][start.x] = "L"
-    if start.down() in loop:
+    if start.move(DOWN) in loop:
         input[start.y][start.x] = "|"
-    if start.left() in loop:
+    if start.move(LEFT) in loop:
         input[start.y][start.x] = "J"
-elif start.down() in loop:
-    if start.right() in loop:
+elif start.move(DOWN) in loop:
+    if start.move(RIGHT) in loop:
         input[start.y][start.x] = "F"
-    if start.left() in loop:
+    if start.move(LEFT) in loop:
         input[start.y][start.x] = "7"
 else:
     input[start.y][start.x] = "-"

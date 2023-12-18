@@ -1,24 +1,35 @@
 from typing import NamedTuple, Self
 
 
+class Direction(NamedTuple):
+    clock: int
+    y: int
+    x: int
+
+    def right(self):
+        return DIRECTIONS[self.clock + 3 % 12]
+
+    def left(self):
+        return DIRECTIONS[self.clock - 3 % 12]
+
+
+UP = Direction(0, -1, 0)
+RIGHT = Direction(3, 0, 1)
+DOWN = Direction(6, 1, 0)
+LEFT = Direction(9, 0, -1)
+
+DIRECTIONS = {0: UP, 3: RIGHT, 6: DOWN, 9: LEFT}
+
+
 class YX(NamedTuple):
     y: int
     x: int
 
-    def up(self, steps=1):
-        return YX(self.y - steps, self.x)
-
-    def right(self, steps=1):
-        return YX(self.y, self.x + steps)
-
-    def down(self, steps=1):
-        return YX(self.y + steps, self.x)
-
-    def left(self, steps=1):
-        return YX(self.y, self.x - steps)
+    def move(self, dir: Direction, steps=1):
+        return YX(self.y + dir.y * steps, self.x + dir.x * steps)
 
     def cross(self):
-        return [self.up(), self.right(), self.down(), self.left()]
+        return [self.move(dir) for dir in DIRECTIONS.values()]
 
     def is_in(self, map: list[list]):
         return (
@@ -41,19 +52,3 @@ class YX(NamedTuple):
     def range_x(self, other: Self):
         s, e = sorted([self.x, other.x])
         return range(s, e)
-
-
-def up(y: int, x: int):
-    return YX(y, x).up()
-
-
-def right(y: int, x: int):
-    return YX(y, x).right()
-
-
-def down(y: int, x: int):
-    return YX(y, x).down()
-
-
-def left(y: int, x: int):
-    return YX(y, x).left()
