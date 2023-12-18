@@ -1,26 +1,21 @@
-from typing import Self
+from typing import NamedTuple, Self
 
 
-class YX(tuple):
-    def __new__(cls, y: int, x: int) -> Self:
-        return super().__new__(cls, (y, x))
+class YX(NamedTuple):
+    y: int
+    x: int
 
-    def __init__(self, y: int, x: int) -> None:
-        super().__init__()
-        self.y = y
-        self.x = x
+    def up(self, steps=1):
+        return YX(self.y - steps, self.x)
 
-    def up(self):
-        return YX(self.y - 1, self.x)
+    def right(self, steps=1):
+        return YX(self.y, self.x + steps)
 
-    def right(self):
-        return YX(self.y, self.x + 1)
+    def down(self, steps=1):
+        return YX(self.y + steps, self.x)
 
-    def down(self):
-        return YX(self.y + 1, self.x)
-
-    def left(self):
-        return YX(self.y, self.x - 1)
+    def left(self, steps=1):
+        return YX(self.y, self.x - steps)
 
     def cross(self):
         return [self.up(), self.right(), self.down(), self.left()]
@@ -33,7 +28,7 @@ class YX(tuple):
             and self.x < len(map[self.y])
         )
 
-    def on(self, map: list[list]):
+    def on[T](self, map: list[list[T]]):
         return map[self.y][self.x]
 
     def dist_manhattan(self, other: Self):
