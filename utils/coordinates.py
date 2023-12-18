@@ -7,10 +7,10 @@ class Direction(NamedTuple):
     x: int
 
     def right(self):
-        return DIRECTIONS[self.clock + 3 % 12]
+        return DIRECTIONS[(self.clock + 3) % 12]
 
     def left(self):
-        return DIRECTIONS[self.clock - 3 % 12]
+        return DIRECTIONS[(self.clock - 3) % 12]
 
 
 UP = Direction(0, -1, 0)
