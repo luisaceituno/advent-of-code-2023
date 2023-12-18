@@ -1,8 +1,7 @@
 from utils.coordinates import YX
-from typing import Iterable
 
 
-def blocky_shoelace(corners: Iterable[YX]):
+def blocky_shoelace(corners: list[YX]):
     area = 0
     border = 0
     for i in range(len(corners)):
@@ -10,5 +9,4 @@ def blocky_shoelace(corners: Iterable[YX]):
         (y2, x2) = corners[(i + 1) % len(corners)]
         area += (x1 * y2) - (x2 * y1)
         border += abs(x2 - x1 + y2 - y1)
-    print(area, border)
     return int(abs(area / 2) + border / 2 + 1)
