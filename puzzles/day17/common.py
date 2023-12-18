@@ -1,6 +1,6 @@
 from math import inf
 from queue import PriorityQueue
-from typing import Callable, NamedTuple
+from typing import NamedTuple
 from utils.coordinates import DIRECTIONS, YX
 from utils.read_input import read_input
 
