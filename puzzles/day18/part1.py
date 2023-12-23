@@ -1,6 +1,6 @@
 import re
 from puzzles.day18.common import blocky_shoelace
-from utils.coordinates import DOWN, RIGHT, UP, LEFT, YX
+from utils.yx import DOWN, RIGHT, UP, LEFT, YX
 from utils.read_input import read_input
 
 

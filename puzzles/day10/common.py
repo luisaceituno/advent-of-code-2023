@@ -1,4 +1,4 @@
-from utils.coordinates import DOWN, LEFT, RIGHT, UP, YX
+from utils.yx import DOWN, LEFT, RIGHT, UP, YX
 
 
 def next_pos(prev: YX, cur: YX, input: list[str]):

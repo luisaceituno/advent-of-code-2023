@@ -1,4 +1,4 @@
-from utils.coordinates import YX
+from utils.yx import YX
 
 reflections = {
     ".": {"u": ["u"], "r": ["r"], "d": ["d"], "l": ["l"]},

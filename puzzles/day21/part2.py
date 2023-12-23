@@ -1,4 +1,4 @@
-from utils.coordinates import YX
+from utils.yx import YX
 from utils.read_input import read_input
 from utils.str_processing import filter_yx
 

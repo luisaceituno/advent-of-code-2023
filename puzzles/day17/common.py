@@ -1,7 +1,7 @@
 from math import inf
 from queue import PriorityQueue
 from typing import NamedTuple
-from utils.coordinates import DIRECTIONS, YX
+from utils.yx import DIRECTIONS, YX
 from utils.read_input import read_input
 
 

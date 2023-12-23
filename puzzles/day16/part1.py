@@ -1,5 +1,5 @@
 from puzzles.day16.common import Tiles, moves, reflections
-from utils.coordinates import YX
+from utils.yx import YX
 from utils.read_input import read_input
 
 diagram = read_input()

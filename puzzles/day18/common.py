@@ -1,4 +1,4 @@
-from utils.coordinates import YX
+from utils.yx import YX
 
 
 def blocky_shoelace(corners: list[YX]):

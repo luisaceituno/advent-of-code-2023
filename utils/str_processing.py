@@ -1,7 +1,7 @@
 import re
 from typing import Callable, Generator
 
-from utils.coordinates import YX
+from utils.yx import YX
 
 
 def chars_surrounding(

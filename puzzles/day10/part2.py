@@ -1,5 +1,5 @@
 from puzzles.day10.common import next_pos
-from utils.coordinates import DOWN, LEFT, RIGHT, UP, YX
+from utils.yx import DOWN, LEFT, RIGHT, UP, YX
 from utils.lists import filter_2d
 from utils.read_input import read_input
 
