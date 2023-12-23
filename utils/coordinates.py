@@ -42,6 +42,11 @@ class YX(NamedTuple):
     def on[T](self, map: list[list[T]]):
         return map[self.y][self.x]
 
+    def on_wrapped[T](self, map: list[list[T]]):
+        y = self.y % len(map)
+        x = self.x % len(map[y])
+        return YX(y, x).on(map)
+
     def dist_manhattan(self, other: Self):
         return abs(other.y - self.y) + abs(other.x - self.x)
 

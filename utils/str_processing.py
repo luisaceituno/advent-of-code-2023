@@ -1,6 +1,8 @@
 import re
 from typing import Callable, Generator
 
+from utils.coordinates import YX
+
 
 def chars_surrounding(
     lines: list[str], y: int, x: int
@@ -23,11 +25,16 @@ def int_tokens(line: str):
     return [int(token) for token in re.sub(r"[^0-9\-]", " ", line).split()]
 
 
-def find_y_x_val(lines: list[list[str]], filter: Callable[[str], bool]):
+def filter_y_x_val(lines: list[list[str]], filter: Callable[[str], bool]):
     for y, line in enumerate(lines):
         for x, s in enumerate(line):
             if filter(s):
                 yield y, x, s
+
+
+def filter_yx(lines: list[list[str]], filter: Callable[[str], bool]):
+    for y, x, _ in filter_y_x_val(lines, filter):
+        yield YX(y, x)
 
 
 def transpose(lines: list[str]):
